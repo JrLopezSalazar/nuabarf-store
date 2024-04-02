@@ -64,8 +64,8 @@ const NavBar = () => {
         </ul>
       );
   return (
-    <div className="-m-6 max-h-[768px] w-[100%]  ">
-      <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4  text-black">
+    <div className=" max-h-[768px] w-[100%]  ">
+      <Navbar className="sticky top-0 z-10 h-max rounded-none px-4 py-2 lg:px-8 lg:py-4  text-black ">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
@@ -143,12 +143,12 @@ const NavBar = () => {
           </div>
         </Collapse>
       </Navbar>
-      <div className="mx-auto max-w-screen-md py-12">
-        <Card className="mb-12 overflow-hidden">
+      <div className="  ">
+        <Card className="mb-12 w-full">
           <img
             alt="nature"
-            className="h-[32rem] w-full object-cover object-center"
-            src="https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80"
+            className="h-[32rem]  w-full object-cover border-4"
+            src="/images/donna.jpg"
           />
         </Card>
         {/* <Typography variant="h2" color="blue-gray" className="mb-2">
