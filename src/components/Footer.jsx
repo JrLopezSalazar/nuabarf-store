@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer class="flex flex-col space-y-6 justify-center m-10 ">
+    <footer className="flex flex-col space-y-6 justify-center m-10 ">
 
     {/* <nav class="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
         <a class="hover:text-gray-900" href="#">Home</a>
@@ -13,7 +13,7 @@ const Footer = () => {
         <a class="hover:text-gray-900" href="#">Contact</a>
     </nav> */}
 
-    <div class="flex justify-center space-x-5">
+    <div className="flex justify-center space-x-5">
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
         </a>
@@ -30,7 +30,7 @@ const Footer = () => {
             <img src="https://img.icons8.com/fluent/30/000000/twitter.png" />
         </a>
     </div>
-    <p class="flex justify-center text-center sm:text-2xl text-xl  text-gray-700 font-medium">&copy;Hecho con todo nuestro  <img className='ml-3 sm:h-10 h-7 animate-pulse ' src="/images/heart.png" alt="" /> .</p>
+    <p className="flex justify-center text-center sm:text-2xl text-xl  text-gray-700 font-medium">&copy;Hecho con todo nuestro  <img className='ml-3 sm:h-10 h-7 animate-pulse ' src="/images/heart.png" alt="" /> .</p>
 </footer>
   )
 }
