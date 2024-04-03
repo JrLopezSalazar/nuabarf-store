@@ -4,6 +4,7 @@ import AboutBarf from '../components/AboutBarf'
 import Calculator from '../components/Calculator'
 import Menu from '../components/Menu'
 import HomeCalculator from '../components/HomeCalculator'
+import Footer from '../components/Footer'
 
 
 const Home = () => {
@@ -13,7 +14,8 @@ const Home = () => {
     <AboutBarf />
     <Menu/>
     <HomeCalculator/>
-    <Calculator/>
+    {/* <Calculator/> */}
+    <Footer/>
 
     </>
   )
