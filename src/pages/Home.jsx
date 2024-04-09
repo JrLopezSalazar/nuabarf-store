@@ -7,12 +7,15 @@ import HomeCalculator from '../components/HomeCalculator'
 import Footer from '../components/Footer'
 
 
+
 const Home = () => {
+
+
   return (
     <>
     {/* <NavBar/> */}
     <AboutBarf />
-    <Menu/>
+    <Menu  />
     <HomeCalculator/>
     {/* <Calculator/> */}
     <Footer/>

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "recipe": "Alimento barf receta de pollo",
+    "price": "s/. 10.00",
+    "gallery": ["/images/chicken.png"]
+  },
+  {
+    "id": 2,
+    "recipe": "Alimento barf receta de res",
+    "price": "s/. 11.00",
+    "gallery": ["/images/res.png"]
+  },
+  {
+    "id": 3,
+    "recipe": "Alimento barf receta de res",
+    "price": "s/. 12.00",
+    "gallery": ["/images/logo.jpg"]
+  }
+]
