@@ -1,0 +1,16 @@
+import React from 'react'
+
+const ImagePortada = () => {
+  return (
+    <nav className="bg-white border-gray-200 dark:bg-gray-900">
+            {/* <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+               
+               
+                
+            </div> */}
+            <img src="/images/portada.jpg" alt="" />
+        </nav>
+  )
+}
+
+export default ImagePortada

@@ -5,6 +5,7 @@ import Calculator from '../components/Calculator'
 import Menu from '../components/Menu'
 import HomeCalculator from '../components/HomeCalculator'
 import Footer from '../components/Footer'
+import ImagePortada from '../components/ImagePortada'
 
 
 
@@ -14,6 +15,7 @@ const Home = () => {
   return (
     <>
     {/* <NavBar/> */}
+    <ImagePortada/>
     <AboutBarf />
     <Menu  />
     <HomeCalculator/>

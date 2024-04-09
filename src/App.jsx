@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 //import ListProducts from "./components/listStore/ListProducts";
 //import db from './db.json'
 import ListProducts from "./components/listStore/ListProducts";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   //const [dbProducts, setDbProducts] = useState(db);
@@ -31,6 +32,8 @@ function App() {
           <Route path="/calculatorbarf" element={<CalculatorBarf />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/listproducts" element={<ListProducts />} />
+          <Route path="/shoppingcart" element={<ShoppingCart />} />
+
 
         </Routes>
         {/* <div className="hidden">
