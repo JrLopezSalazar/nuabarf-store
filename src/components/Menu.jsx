@@ -13,7 +13,7 @@ const Menu = () => {
   return (
     <>
       <section>
-        <article className="bg-[#043E52] h-[790px] ">
+        <article className="bg-[#043E52] h-[860px] sm:h-[790px]">
           <h3 className="text-4xl justify-center flex py-8  text-white ">
             Recetas
           </h3>
@@ -32,7 +32,7 @@ const Menu = () => {
               alt=""
             />
           </div>
-          <a className="text-2xl justify-center mx-auto flex border-4 w-44 text-white py-3 px-4 rounded-xl" href="/listproducts">Comprar</a>
+          <a className="text-2xl justify-center mx-auto flex border-4 w-44 text-white py-3 px-4 rounded-xl mt-6" href="/listproducts">Comprar</a>
         </article>
       </section>
       <div style={{ display: 'none' }}>

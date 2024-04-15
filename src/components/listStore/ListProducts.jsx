@@ -1,12 +1,38 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 import useGlobalState from '../../store/products';
+import counterCartStore from '../../store/counterCart'
+
 import useCartStore from '../../store/showCart';
 
 
-const ListProducts = () => {
-     
+const ListProducts = ( ) => {
+
+  const [showMessage, setShowMessage] = useState(false);
+  const { cart: cartItems } = useCartStore();
+  const { cartItemsCount, setCartItemsCount } = counterCartStore();
+  //console.log(cartItemsCount)
+  useEffect(() => {
+    // Seteando la cantidad de elementos del carrito basado en la longitud del array de items
+    setCartItemsCount(cartItems.length);
+  }, [cartItems, setCartItemsCount]);
+
+
+const counterAddToCart = () => {
+  setCartItemsCount(prevCount => prevCount + 1);
+  //counterAddToCart(); // Llamada a la función de actualización del carrito en el componente padre
+};
+  const messageAddToCart = (productId) => {
+  // Mostrar el mensaje solo para el producto especificado
+    setShowMessage((prev) => ({ ...prev, [productId]: true }));
+
+  // Ocultar el mensaje después de unos segundos (por ejemplo, 3 segundos)
+    setTimeout(() => {
+      setShowMessage((prev) => ({ ...prev, [productId]: false }));
+    }, 3000);
+  };
+
      const { products, fetchProducts } = useGlobalState();
      const addToCart = useCartStore((state) => state.addToCart);
      useEffect(() => {
@@ -15,10 +41,14 @@ const ListProducts = () => {
      //const dbProducts = getData();
      //console.log("desdes list", products)
      const handleAddToCart = (product) => {
-        addToCart(product); // Agrega el producto al carrito utilizando el hook del carrito
+        addToCart(product); 
+        messageAddToCart(product.id)// Agrega el producto al carrito utilizando el hook del carrito
       };
 
+    
+
   return (
+    <>
     <article className='bg-green-900 '>
       <h2 className='text-5xl flex justify-center py-10 text-white'>Tienda</h2>
       <section className="grid gap-6 justify-center grid-cols-[repeat(auto-fit,_minmax(320px,1fr))] max-w-[1200px] mx-auto">
@@ -58,51 +88,44 @@ const ListProducts = () => {
                   <span className="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
                 </div>
               </div>
+
+              <div className='relative flex'>
               <button
-                onClick={() => handleAddToCart(product)} // Llama a la función para agregar al carrito
-                className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-2 h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-                Agregar al carrito
-              </button>
-              {/* <a
-                href="#"
-                className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-2 h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-                Agregar al carrito
-              </a> */}
+  onClick={() => {
+    handleAddToCart(product);
+    messageAddToCart(product.id); // Llama a la función para incrementar el contador
+  }}
+  className="flex relative items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="mr-2 h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+    />
+  </svg>
+  {showMessage[product.id] ? 'Agregado correctamente' : 'Agregar al carrito'}
+</button>
+              
+          
+              </div>
+            
+             
             </div>
           </div>
         ))}
       </section>
+      
     </article>
+    
+    </>
   )
 }
 

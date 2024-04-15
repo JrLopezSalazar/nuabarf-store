@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useCartStore from "../store/showCart";
 
 const ModalDataOrder = ({onClose}) => {
+
     const [userData, setUserData] = useState({
         firstName: '',
         lastName: '',
@@ -11,12 +12,40 @@ const ModalDataOrder = ({onClose}) => {
         reference: ''
       });
 
+      const formatUserDataForWhatsApp = () => {
+        const { firstName, lastName, email, phoneNumber, address, reference } = userData;
+        const cartItems = useCartStore.getState().cart;
+      
+        // Crear una lista de productos con su nombre, cantidad y subtotal
+        const productDetails = cartItems.map(item => `- ${item.product.recipe} (Cantidad: ${item.quantity}, Subtotal: ${item.product.price * item.quantity})`);
+      
+        // Calcular el total del carrito sumando los subtotales de cada producto
+        const cartTotal = cartItems.reduce((total, item) => total + (item.product.price * item.quantity), 0);
+      
+        return `
+          Pedido:
+          Nombre: ${firstName} ${lastName}
+          Email: ${email}
+          Teléfono: ${phoneNumber}
+          Dirección: ${address}
+          Referencia: ${reference}
+      
+          Productos:
+          ${productDetails.join('\n')}
+      
+          Total: ${cartTotal.toFixed(2)} 
+        `;
+      };
       const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUserData({ ...userData, [name]: value });
       };
-    const sendOrder = async () => {
+
+      const sendOrder = async () => {
+        // Obtener los elementos del carrito
         const cartItems = useCartStore.getState().cart;
+      
+        // Crear un objeto con los datos del pedido y los elementos del carrito
         const orderData = {
           ...userData,
           cart: cartItems.map(item => ({
@@ -26,10 +55,11 @@ const ModalDataOrder = ({onClose}) => {
             subtotal: item.product.price * item.quantity
           }))
         };
-    
+      
         // Construir el enlace de WhatsApp con los datos del pedido
-        const whatsAppLink = `https://wa.me/51974113332?text=${encodeURIComponent(JSON.stringify(orderData))}`;
-    
+        //const whatsAppLink = `https://wa.me/51974113332?text=${encodeURIComponent(JSON.stringify(orderData))}`;
+        const whatsAppLink = `https://wa.me/51974113332?text=${encodeURIComponent(formatUserDataForWhatsApp())}`;
+      
         // Redirigir al usuario a WhatsApp
         window.location.href = whatsAppLink;
       };

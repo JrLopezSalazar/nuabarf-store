@@ -5,6 +5,7 @@ import ModalDataOrder from './ModalDataOrder';
 
 
 const ShoppingCart = () => {
+ 
   const [isModalOpen, setIsModalOpen] = useState(false); // Estado local para controlar la visibilidad del modal
 
    // Estado local para almacenar los datos ingresados en el modal
@@ -16,6 +17,8 @@ const ShoppingCart = () => {
     address: '',
     reference: ''
   });
+
+  
 
     // Función para manejar el cambio en los campos del formulario del modal
     const handleInputChange = (e) => {
@@ -98,7 +101,7 @@ const ShoppingCart = () => {
   //   return item.product.price * item.quantity;
   // };
   const calculateItemSubtotal = (item) => {
-    console.log('calculateItemSubtotal se ha llamado');
+   //  console.log('calculateItemSubtotal se ha llamado');
     if (!item.product || !item.product.price || !item.quantity || !item.product.recipe) {
       // Si alguno de los campos necesarios no está presente en el producto, no podemos calcular el subtotal
       console.error('Error: Faltan datos del producto.');
@@ -107,9 +110,6 @@ const ShoppingCart = () => {
     const { price, recipe } = item.product; // Extraer price y recipe del producto
     const { quantity } = item; // Obtener quantity de item
 
-    //console.log(price);
-    //console.log(quantity);
-    //console.log(recipe);
 
     const itemData = {
       price: price,
@@ -118,16 +118,11 @@ const ShoppingCart = () => {
     };
     const itemDataJSON = JSON.stringify(itemData); // Convertir el objeto a JSON
     sendDataToScript(itemDataJSON)
-    //console.log('Datos del artículo:', itemDataJSON);
-    //console.log(item.product)
-    //console.log(item.product.price * item.quantity)
+  
     return item.product.price * item.quantity;
   };
 
-  // Funciones para manejar el aumento y la disminución de la cantidad de un producto en el carrito
-  // const handleDecrease = (productId) => {
-  //   updateQuantity(productId, -1); // Disminuir la cantidad del producto en 1
-  // };
+
   const handleDecrease = (productId) => {
     updateQuantity(productId, -1); // Disminuir la cantidad del producto en 1
     const item = cart.find(item => item.id === productId);
@@ -137,15 +132,13 @@ const ShoppingCart = () => {
     }
   };
 
-  // const handleIncrease = (productId) => {
-  //   updateQuantity(productId, 1); // Aumentar la cantidad del producto en 1
-  // };
+ 
   const handleIncrease = (productId) => {
     updateQuantity(productId, 1); // Aumentar la cantidad del producto en 1
     const item = cart.find(item => item.id === productId);
     if (item) {
       const subtotal = calculateItemSubtotal(item);
-      // Hacer lo que necesites con el subtotal
+    
     }
   };
 
