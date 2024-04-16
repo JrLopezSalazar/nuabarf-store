@@ -1,20 +1,18 @@
 [
   {
     "id": 1,
-    "recipe": "Alimento barf receta de pollo",
+    "recipe": "Alimento barf de pollo",
+    "weight": "1 Kilo",
     "price": "10.00",
-    "gallery": ["/images/chicken.png"]
+    "gallery": ["/images/chicken.png"],
+    "details": "Presentación de 1 kilo, contiene 10 hamburguesas de 100 gramos c/u."
   },
   {
     "id": 2,
-    "recipe": "Alimento barf receta de res",
+    "recipe": "Alimento barf de res",
+    "weight": "1 Kilo",
     "price": "11.00",
-    "gallery": ["/images/res.png"]
-  },
-  {
-    "id": 3,
-    "recipe": "Alimento barf receta de res",
-    "price": "12.00",
-    "gallery": ["/images/logo.jpg"]
+    "gallery": ["/images/res.png"],
+    "details": "Presentación de 1 kilo, contiene 10 hamburguesas de 100 gramos c/u."
   }
 ]

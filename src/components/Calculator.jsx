@@ -44,7 +44,8 @@ const Calculator = () => {
     return result.toFixed(3); 
   };
   
-
+  const resultadoFormateado = resultado !== null ? resultado.toFixed(3) : ""; // Formatea el resultado a 3 decimales si existe, de lo contrario, devuelve una cadena vacía
+  const porcionIndividual = resultado !== null ? (resultado / 3).toFixed(3) : "";
 
   return (
     <>
@@ -88,9 +89,9 @@ const Calculator = () => {
 
         <button className="px-4 py-2 rounded-md text-white font-medium bg-gradient-to-r bg-orange-600  mb-8 " type="submit">Calcular</button>
       </form>
-      <div className="text-2xl sm:text-4xl mb-6">
-      <h3 className="">
-  Ración diaria para {namePet} {resultado.toFixed(3)} kilogramos por día, dividido en 3 porciones de {resultado.toFixed(3) / 3} kilogramos cada una.
+      <div className="text-2xl sm:text-xl mb-6">
+      <h3 className="t">
+  Ración diaria para {namePet} {resultadoFormateado} kilogramos por día, dividido en 3 porciones de {porcionIndividual} kilogramos cada una.
 </h3>
       </div>
     </section>

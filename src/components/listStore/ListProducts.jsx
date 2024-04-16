@@ -70,14 +70,16 @@ const counterAddToCart = () => {
             </a>
             <div className="mt-4 px-5 pb-5">
               <a href="#">
-                <h5 className="text-xl tracking-tight text-slate-900">
+                <h5 className="text-xl tracking-tight text-slate-900 font-semibold">
                   {product.product.recipe || "Nombre del producto no disable"}
                 </h5>
+                <span>{product.product.weight}</span>
               </a>
               <div className="mt-2 mb-5 flex items-center justify-between">
                 <p>
-                  <span className="text-3xl font-bold text-slate-900">{product.product.price}</span>
-                  <span className="text-sm text-slate-900 line-through">{product.product.price}</span>
+                  <span className="text-3xl font-bold text-slate-900">s/.{product.product.price}</span>
+                  <span className="text-sm text-slate-900 line-through">12.oo</span>
+                  {/* <span className="text-sm text-slate-900 line-through">{product.product.price}</span> */}
                 </p>
                 <div className="flex items-center">
                   {[1, 2, 3, 4, 5].map((_, index) => (

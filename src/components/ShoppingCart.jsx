@@ -156,7 +156,8 @@ const ShoppingCart = () => {
                 <img src={item.product.gallery[0]} alt="product-image" className="w-full rounded-lg sm:w-40" />
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                   <div className="mt-5 sm:mt-0">
-                    <h2 className="text-lg font-bold text-gray-900">{item.product.recipe}</h2>
+                    <h2 className="text-xl font-bold text-gray-900">{item.product.recipe}</h2>
+                    <p>{item.product.details}</p>
                   </div>
                   <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <div className="flex items-center border-gray-100">
