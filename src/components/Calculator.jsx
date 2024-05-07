@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+//import { createLogger } from "vite";
 
 const Calculator = () => {
-    const [resultado, setResultado] = useState(null)
+    const [resultado, setResultado] = useState(0)
     const [namePet, setNamePet] = useState(null)
 
 
@@ -18,33 +19,34 @@ const Calculator = () => {
     //console.log(ageNumber)
     const foodAmount = calculateFood(weightNumber, ageNumber);
     setResultado(foodAmount)
-   //return foodAmount
+   // console.log(foodAmount)
+   return foodAmount
   };
 
 
   const calculateFood = (weight, age) => {
-    let result; // Definir result fuera de las condiciones if
+    let result;
     
     if (age <= 4) {
-      result = (weight * 10) / 100; // Actualizar result dentro de la condición
+      result = (weight * 10) / 100;
     } else if (age <= 6) {
       result = (weight * 8) / 100;
     } else if (age <= 8) {
       result = (weight * 6) / 100;
     } else if (age <= 10) {
       result = (weight * 4) / 100;
-    }else if (age <= 12){
-        result = (weight * 3) / 100
-    }else if (age > 12 ){
-      result = (weight * 2) / 100
+    } else if (age <= 12) {
+      result = (weight * 3.5) / 100;
+    } else if (age > 12) {
+      result = (weight * 3) / 100;
     } else {
-        result = 0
+      result = 0;
     }
   
-    return result.toFixed(3); 
+    return result; // No aplicar toFixed() aquí
   };
   
-  const resultadoFormateado = resultado !== null ? resultado.toFixed(3) : ""; // Formatea el resultado a 3 decimales si existe, de lo contrario, devuelve una cadena vacía
+  const resultadoFormateado = resultado !== null ? resultado.toFixed(3) : ""; 
   const porcionIndividual = resultado !== null ? (resultado / 3).toFixed(3) : "";
 
   return (
