@@ -20,15 +20,15 @@ const Footer = () => {
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
             <img src="https://img.icons8.com/fluent/30/000000/linkedin-2.png" />
         </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/nuabarf.pe/" target="_blank" rel="noopener noreferrer">
             <img src="https://img.icons8.com/fluent/30/000000/instagram-new.png" />
         </a>
         <a href="https://messenger.com" target="_blank" rel="noopener noreferrer">
             <img src="https://img.icons8.com/fluent/30/000000/facebook-messenger--v2.png" />
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+        {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
             <img src="https://img.icons8.com/fluent/30/000000/twitter.png" />
-        </a>
+        </a> */}
     </div>
     <p className="flex justify-center text-center sm:text-2xl text-xl  text-gray-700 font-medium">&copy;Hecho con todo nuestro  <img className='ml-3 sm:h-10 h-7 animate-pulse ' src="/images/heart.png" alt="" /> .</p>
 </footer>

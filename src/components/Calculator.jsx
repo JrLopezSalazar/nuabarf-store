@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "./Footer";
 
 const Calculator = () => {
     const [resultado, setResultado] = useState(null)
@@ -101,6 +102,7 @@ const Calculator = () => {
       <p className="text-lg mt-5">La calculadora de alimentación BARF es una herramienta diseñada para ayudar a los dueños de mascotas a determinar las cantidades adecuadas de alimentos que deben proporcionar a sus perros según el método BARF (Biologically Appropriate Raw Food).<br></br> Al usar una calculadora tener en cuenta las variaciones según la edad y el nivel de actividad, puede ayudar a garantizar que tu perro reciba una dieta equilibrada y adaptada a sus necesidades individuales</p>
     </article>
     </section>
+    <Footer/>
       </>
   );
 };

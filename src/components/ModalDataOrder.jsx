@@ -58,7 +58,7 @@ const ModalDataOrder = ({onClose}) => {
       
         // Construir el enlace de WhatsApp con los datos del pedido
         //const whatsAppLink = `https://wa.me/51974113332?text=${encodeURIComponent(JSON.stringify(orderData))}`;
-        const whatsAppLink = `https://wa.me/51974113332?text=${encodeURIComponent(formatUserDataForWhatsApp())}`;
+        const whatsAppLink = `https://wa.me/51922858783?text=${encodeURIComponent(formatUserDataForWhatsApp())}`;
       
         // Redirigir al usuario a WhatsApp
         window.location.href = whatsAppLink;
